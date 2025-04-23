@@ -39,24 +39,72 @@ http://www.hanascare.de
      </section>
 
 
-     <!-- KOPFZEILE -->
-     <header>
-          <div class="container">
-               <div class="row">
+    <style>
+     header {
+          background-color: #007BFF;
+          color: white;
+          height: 50px;
+     }
 
-                    <div class="col-md-4 col-sm-5">
-                         <p>Ambulanter Pflegedienst Hana's Care </p>
-                    </div>
-                         
-                    <div class="col-md-8 col-sm-7 text-align-right">
-                         <span class="phone-icon"><i class="fa fa-phone"></i> 07457-953-14-11</span>
-                        
-                         <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">info@hanascare.de</a></span>
-                    </div>
+     .header-wrapper {
+          max-width: 1200px;
+          margin: 0 auto;
+          height: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 15px;
+     }
 
-               </div>
+     .left-text span {
+          color: white;
+          font-size: 18px;
+          font-weight: bold;
+          line-height: 1;
+          vertical-align: middle;
+     }
+
+     .right-text span,
+     .right-text a {
+          color: white;
+          font-size: 14px;
+          line-height: 1;
+          vertical-align: middle;
+     }
+
+     .right-text {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+     }
+
+     a {
+          text-decoration: none;
+     }
+
+     a:hover {
+          text-decoration: underline;
+     }
+
+     .fa {
+          margin-right: 5px;
+     }
+</style>
+
+<!-- KOPFZEILE -->
+<header>
+     <div class="header-wrapper">
+          <div class="left-text">
+               <span>Ambulanter Pflegedienst Hana's Care</span>
           </div>
-     </header>
+
+          <div class="right-text">
+               <span class="phone-icon"><i class="fa fa-phone"></i> 07457-953-14-11</span>
+               <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">info@hanascare.de</a></span>
+          </div>
+     </div>
+</header>
+
 
 
      <!-- MENÜ -->
