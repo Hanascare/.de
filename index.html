@@ -244,9 +244,207 @@ http://www.hanascare.de
 
 
     
+    <!-- NEWS SECTION -->
 
+        <section id="news">
+
+          <div class="container">
+
+            <div class="section-title">
+
+              <h2>Unsere Leistungen</h2>
+
+            </div>
+
+
+
+            <div class="news-scroll-wrapper" id="scroll-container">
+
+              <!-- Card 1 -->
+
+              <div class="news-thumb">
+
+                <img src="images/news-image1.jpg" alt="Grundpflege">
+
+                <div class="news-info">
+
+                  <span>Grundpflege</span>
+
+                  <h3>Unterstützung zu Hause, um Krankenhaus oder Pflegenheimaufenthalte zu vermeiden.</h3>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Card 2 -->
+
+              <div class="news-thumb">
+
+                <img src="images/news-image2.jpg" alt="Behandlungspflege">
+
+                <div class="news-info">
+
+                  <span>Behandlungspflege</span>
+
+                  <h3>Pflegeleistungen auf Grundlage ärztlicher Verordnung: Medikamentengabe, Wundversorgung, Injektionen.</h3>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Card 3 -->
+
+              <div class="news-thumb">
+
+                <img src="images/news-image3.jpg" alt="Hauswirtschaftliche Versorgung">
+
+                <div class="news-info">
+
+                  <span>Hauswirtschaftliche Versorgung</span>
+
+                  <h3>Hilfe im Haushalt: Einkaufen, Kochen, Reinigen für ein gepflegtes Zuhause.</h3>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- Repeat for loop effect -->
+
+              <div class="news-thumb">
+
+                <img src="images/news-image1.jpg" alt="Grundpflege">
+
+                <div class="news-info">
+
+                  <span>Grundpflege</span>
+
+                  <h3>Unterstützung zu Hause, um Krankenhaus oder Pflegenheimaufenthalte zu vermeiden.</h3>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="news-thumb">
+
+                <img src="images/news-image2.jpg" alt="Behandlungspflege">
+
+                <div class="news-info">
+
+                  <span>Behandlungspflege</span>
+
+                  <h3>Pflegeleistungen auf Grundlage ärztlicher Verordnung: Medikamentengabe, Wundversorgung, Injektionen.</h3>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="news-thumb">
+
+                <img src="images/news-image3.jpg" alt="Hauswirtschaftliche Versorgung">
+
+                <div class="news-info">
+
+                  <span>Hauswirtschaftliche Versorgung</span>
+
+                  <h3>Hilfe im Haushalt: Einkaufen, Kochen, Reinigen für ein gepflegtes Zuhause.</h3>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
     
-   
+    <!-- JavaScript for scroll behavior -->
+
+     <script>
+
+       document.addEventListener("DOMContentLoaded", function () {
+
+         const container = document.getElementById('scroll-container');
+
+
+
+         // Clone content to allow seamless loop
+
+         container.innerHTML += container.innerHTML;
+
+
+
+         let scrollSpeed = 1;
+
+         let isPaused = false;
+
+         let pauseTimeout = null;
+
+
+
+         function autoScroll() {
+
+           if (!isPaused) {
+
+             container.scrollLeft += scrollSpeed;
+
+
+
+             // Reset scroll for seamless loop
+
+             if (container.scrollLeft >= container.scrollWidth / 2) {
+
+               container.scrollLeft = 0;
+
+             }
+
+           }
+
+           requestAnimationFrame(autoScroll);
+
+         }
+
+
+
+         autoScroll();
+
+
+
+         // Pause for 10 seconds on click
+
+         container.addEventListener('click', () => {
+
+           if (!isPaused) {
+
+             isPaused = true;
+
+             clearTimeout(pauseTimeout);
+
+             pauseTimeout = setTimeout(() => {
+
+               isPaused = false;
+
+             }, 10000); // 10 seconds = 10000 milliseconds
+
+           }
+
+         });
+
+       });
+
+     </script>
+
+
       <style>
         body {
           font-family: Arial, sans-serif;
