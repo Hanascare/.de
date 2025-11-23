@@ -443,6 +443,46 @@ http://www.hanascare.de
        });
 
      </script>
+     <!-- JOB ANZEIGE -->
+     <section id="job-ad" style="background:#ffffff; padding:40px 20px; border-radius:8px; margin-bottom:50px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+       <div class="container">
+         <div class="section-title text-center">
+           <h2>🌿 Werde Teil von Hana’s Care!</h2>
+         </div>
+         <p><strong>Hana’s Care sucht DICH!</strong> – Gesundheit- und Krankenpfleger/in, Altenpfleger/in, Pflegehelfer/in, Altenpflegehelfer/in, Ergänzende Hilfe (m/w/d) in Teil- oder Vollzeit (50–100 %).</p>
+         
+         <p>🫶 Du arbeitest gern mit Menschen, willst Sinn in deinem Job und ein Team, das dich wirklich unterstützt? Dann komm zu Hana’s Care – deinem ambulanten Pflegedienst mit Herz.</p>
+         
+         <h4>✨ Was dich bei uns erwartet:</h4>
+         <ul>
+           <li>💚 Ein herzliches, modernes Team mit echtem Zusammenhalt</li>
+           <li>💼 Strukturierte Einarbeitung & feste Ansprechpartner</li>
+           <li>🕓 Geregelte Touren und Wunschdienste – wir planen mit dir, nicht gegen dich</li>
+           <li>📱 Digitale Dokumentation & moderne Ausstattung</li>
+           <li>💶 Faires Gehalt mit attraktiven Zuschlägen</li>
+           <li>📚 Weiterbildung & Entwicklung auf unsere Kosten</li>
+         </ul>
+         
+         <h4>✅ Das bringst du mit:</h4>
+         <ul>
+           <li>Abgeschlossene Ausbildung als Pflegefachkraft, Altenpfleger/in, Altenpflegehelfer/in, Ergänzende Hilfe oder gleichwertige Qualifikation</li>
+           <li>🚗 Führerschein Klasse B</li>
+           <li>😊 Empathie, Zuverlässigkeit und Teamgeist</li>
+         </ul>
+         
+         <p><strong>📩 Jetzt bewerben!</strong><br>
+           Ein Anruf oder eine kurze Mail reicht für den ersten Kontakt – wir freuen uns auf dich!</p>
+         
+        <p><strong>
+   📞 <a href="tel:074579531411">07457 – 953-14-11</a> |
+   📧 <a href="mailto:haris@hanascare.de">haris@hanascare.de</a>
+ </strong></p>
+
+         
+         <p>🧩 Noch Fragen? Oder einfach mal reinschnuppern?<br>
+           Wir freuen uns, dich kennenzulernen – ganz ohne Bewerbungsmarathon!</p>
+       </div>
+     </section>
 
 
       <style>
@@ -521,155 +561,12 @@ http://www.hanascare.de
       
    
 
-      <!-- NEWS SECTION -->
-      <section id="news">
-        <div class="container">
-          <div class="section-title">
-            <h2>Unsere Leistungen</h2>
-          </div>
-
-          <div class="news-scroll-wrapper" id="scroll-container">
-            <!-- Card 1 -->
-            <div class="news-thumb">
-              <img src="images/news-image1.jpg" alt="Grundpflege">
-              <div class="news-info">
-                <span>Grundpflege</span>
-                <h3>Unterstützung zu Hause, um Krankenhaus oder Pflegenheimaufenthalte zu vermeiden.</h3>
-              </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="news-thumb">
-              <img src="images/news-image2.jpg" alt="Behandlungspflege">
-              <div class="news-info">
-                <span>Behandlungspflege</span>
-                <h3>Pflegeleistungen auf Grundlage ärztlicher Verordnung: Medikamentengabe, Wundversorgung, Injektionen.</h3>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="news-thumb">
-              <img src="images/news-image3.jpg" alt="Hauswirtschaftliche Versorgung">
-              <div class="news-info">
-                <span>Hauswirtschaftliche Versorgung</span>
-                <h3>Hilfe im Haushalt: Einkaufen, Kochen, Reinigen für ein gepflegtes Zuhause.</h3>
-              </div>
-            </div>
-
-            <!-- Repeat for loop effect -->
-            <div class="news-thumb">
-              <img src="images/news-image1.jpg" alt="Grundpflege">
-              <div class="news-info">
-                <span>Grundpflege</span>
-                <h3>Unterstützung zu Hause, um Krankenhaus oder Pflegenheimaufenthalte zu vermeiden.</h3>
-              </div>
-            </div>
-
-            <div class="news-thumb">
-              <img src="images/news-image2.jpg" alt="Behandlungspflege">
-              <div class="news-info">
-                <span>Behandlungspflege</span>
-                <h3>Pflegeleistungen auf Grundlage ärztlicher Verordnung: Medikamentengabe, Wundversorgung, Injektionen.</h3>
-              </div>
-            </div>
-
-            <div class="news-thumb">
-              <img src="images/news-image3.jpg" alt="Hauswirtschaftliche Versorgung">
-              <div class="news-info">
-                <span>Hauswirtschaftliche Versorgung</span>
-                <h3>Hilfe im Haushalt: Einkaufen, Kochen, Reinigen für ein gepflegtes Zuhause.</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- JavaScript for scroll behavior -->
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const container = document.getElementById('scroll-container');
-
-          // Clone content to allow seamless loop
-          container.innerHTML += container.innerHTML;
-
-          let scrollSpeed = 1;
-          let isPaused = false;
-          let pauseTimeout = null;
-
-          function autoScroll() {
-            if (!isPaused) {
-              container.scrollLeft += scrollSpeed;
-
-              // Reset scroll for seamless loop
-              if (container.scrollLeft >= container.scrollWidth / 2) {
-                container.scrollLeft = 0;
-              }
-            }
-            requestAnimationFrame(autoScroll);
-          }
-
-          autoScroll();
-
-          // Pause for 10 seconds on click
-          container.addEventListener('click', () => {
-            if (!isPaused) {
-              isPaused = true;
-              clearTimeout(pauseTimeout);
-              pauseTimeout = setTimeout(() => {
-                isPaused = false;
-              }, 10000); // 10 seconds = 10000 milliseconds
-            }
-          });
-        });
-      </script>
-
-
-    </html>
-
-    <!-- JOB ANZEIGE -->
-    <section id="job-ad" style="background:#ffffff; padding:40px 20px; border-radius:8px; margin-bottom:50px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-      <div class="container">
-        <div class="section-title text-center">
-          <h2>🌿 Werde Teil von Hana’s Care!</h2>
-        </div>
-        <p><strong>Hana’s Care sucht DICH!</strong> – Gesundheit- und Krankenpfleger/in, Altenpfleger/in, Pflegehelfer/in, Altenpflegehelfer/in, Ergänzende Hilfe (m/w/d) in Teil- oder Vollzeit (50–100 %).</p>
-        
-        <p>🫶 Du arbeitest gern mit Menschen, willst Sinn in deinem Job und ein Team, das dich wirklich unterstützt? Dann komm zu Hana’s Care – deinem ambulanten Pflegedienst mit Herz.</p>
-        
-        <h4>✨ Was dich bei uns erwartet:</h4>
-        <ul>
-          <li>💚 Ein herzliches, modernes Team mit echtem Zusammenhalt</li>
-          <li>💼 Strukturierte Einarbeitung & feste Ansprechpartner</li>
-          <li>🕓 Geregelte Touren und Wunschdienste – wir planen mit dir, nicht gegen dich</li>
-          <li>📱 Digitale Dokumentation & moderne Ausstattung</li>
-          <li>💶 Faires Gehalt mit attraktiven Zuschlägen</li>
-          <li>📚 Weiterbildung & Entwicklung auf unsere Kosten</li>
-        </ul>
-        
-        <h4>✅ Das bringst du mit:</h4>
-        <ul>
-          <li>Abgeschlossene Ausbildung als Pflegefachkraft, Altenpfleger/in, Altenpflegehelfer/in, Ergänzende Hilfe oder gleichwertige Qualifikation</li>
-          <li>🚗 Führerschein Klasse B</li>
-          <li>😊 Empathie, Zuverlässigkeit und Teamgeist</li>
-        </ul>
-        
-        <p><strong>📩 Jetzt bewerben!</strong><br>
-          Ein Anruf oder eine kurze Mail reicht für den ersten Kontakt – wir freuen uns auf dich!</p>
-        
-       <p><strong>
-  📞 <a href="tel:074579531411">07457 – 953-14-11</a> | 
-  📧 <a href="mailto:haris@hanascare.de">haris@hanascare.de</a>
-</strong></p>
-
-        
-        <p>🧩 Noch Fragen? Oder einfach mal reinschnuppern?<br>
-          Wir freuen uns, dich kennenzulernen – ganz ohne Bewerbungsmarathon!</p>
-      </div>
-    </section>
+     
+   
 
      <!-- TERMIN VEREINBAREN -->
     
-       <style>
+      
          body {
            background: #f5f5f5;
            padding: 50px 0;
