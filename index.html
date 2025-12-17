@@ -30,6 +30,17 @@ http://www.hanascare.de
      <link rel="stylesheet" href="css/tooplate-style.css">
 
 </head>
+<script>
+document.querySelectorAll('.navbar-nav li a').forEach(link => {
+    link.addEventListener('click', function () {
+        document.querySelectorAll('.navbar-nav li')
+            .forEach(li => li.classList.remove('active'));
+
+        this.parentElement.classList.add('active');
+    });
+});
+</script>
+
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
      <!-- VORLADER -->
@@ -568,7 +579,22 @@ http://www.hanascare.de
       
    
 
-     
+   .navbar-nav > li > a {
+       font-size: 14px;
+       color: #555 !important;
+       transition: all 0.3s ease;
+   }
+
+   .navbar-nav > li > a:hover {
+       color: #007bff !important;
+       font-size: 16px;
+   }
+          .navbar-nav > li.active > a {
+              color: #007bff !important;
+              font-size: 16px;
+              font-weight: 600;
+          }
+
    
 
      <!-- TERMIN VEREINBAREN -->
@@ -749,6 +775,40 @@ http://www.hanascare.de
        emailInput.addEventListener('input', () => {
          ccField.value = emailInput.value;
        });
+     </script>
+     <script>
+     const menuLinks = document.querySelectorAll('.navbar-nav li a');
+
+     window.addEventListener('scroll', () => {
+         let fromTop = window.scrollY + 150;
+
+         menuLinks.forEach(link => {
+             const sectionId = link.getAttribute('href');
+             const section = document.querySelector(sectionId);
+
+             if (!section) return;
+
+             // SPECIAL CASE: Startseite (#top)
+             if (sectionId === '#top') {
+                 if (window.scrollY < 200) {
+                     link.parentElement.classList.add('active');
+                 } else {
+                     link.parentElement.classList.remove('active');
+                 }
+                 return;
+             }
+
+             // All other sections
+             if (
+                 section.offsetTop <= fromTop &&
+                 section.offsetTop + section.offsetHeight > fromTop
+             ) {
+                 link.parentElement.classList.add('active');
+             } else {
+                 link.parentElement.classList.remove('active');
+             }
+         });
+     });
      </script>
 
      <!-- GOOGLE MAP -->
