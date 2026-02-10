@@ -834,9 +834,21 @@ document.querySelectorAll('.navbar-nav li a').forEach(link => {
              <div class="footer-thumb">
                <h4>Kontakt und Anschrift</h4>
                <p>Birkenbühl 7<br>Rottenburg am Neckar-Hailfingen 72108</p>
-               <p><i class="fa fa-phone"></i> 07457-953-14-11</p>
-               <p><i class="fa fa-fax"></i> 07457-958-49-91</p>
-               <p><i class="fa fa-envelope-o"></i> <a href="mailto:hanascare@hotmail.com">info@hanascare.de</a></p>
+
+               <a href="tel:+4974579531411" class="contact-link phone-link">
+                 <i class="fa fa-phone"></i>
+                 <span>07457-953-14-11</span>
+               </a>
+
+               <a href="tel:+4974579584991" class="contact-link phone-link">
+                 <i class="fa fa-fax"></i>
+                 <span>07457-958-49-91</span>
+               </a>
+
+               <a href="mailto:info@hanascare.de" class="contact-link email-link">
+                 <i class="fa fa-envelope-o"></i>
+                 <span>info@hanascare.de</span>
+               </a>
              </div>
            </div>
 
@@ -845,8 +857,16 @@ document.querySelectorAll('.navbar-nav li a').forEach(link => {
              <div class="footer-thumb">
                <h4>Herr Haris Tresnjo</h4>
                <p>Inhaber und Pflegedienstleitung</p>
-               <p><i class="fa fa-phone"></i> 07457-953-14-11</p>
-               <p><i class="fa fa-envelope-o"></i> <a href="mailto:harishanascare@hotmail.com">haris@hanascare.de</a></p>
+
+               <a href="tel:+4974579531411" class="contact-link phone-link">
+                 <i class="fa fa-phone"></i>
+                 <span>07457-953-14-11</span>
+               </a>
+
+               <a href="mailto:haris@hanascare.de" class="contact-link email-link">
+                 <i class="fa fa-envelope-o"></i>
+                 <span>haris@hanascare.de</span>
+               </a>
              </div>
            </div>
 
@@ -855,10 +875,63 @@ document.querySelectorAll('.navbar-nav li a').forEach(link => {
              <div class="footer-thumb">
                <h4>Herr Steven Kremser</h4>
                <p>Stellv. Pflegedienstleitung</p>
-               <p><i class="fa fa-phone"></i> 07457-953-14-11</p>
-               <p><i class="fa fa-envelope-o"></i> <a href="mailto:stevenhanascare@hotmail.com">steven@hanascare.de</a></p>
+
+               <a href="tel:+4974579531411" class="contact-link phone-link">
+                 <i class="fa fa-phone"></i>
+                 <span>07457-953-14-11</span>
+               </a>
+
+               <a href="mailto:steven@hanascare.de" class="contact-link email-link">
+                 <i class="fa fa-envelope-o"></i>
+                 <span>steven@hanascare.de</span>
+               </a>
              </div>
            </div>
+
+           <style>
+               .contact-link {
+                 display: flex;
+                 align-items: center;
+                 gap: 8px;
+                 color: inherit;
+                 text-decoration: none;
+                 margin-bottom: 6px;
+                 cursor: pointer;
+               }
+
+               .contact-link i {
+                 color: #2a7fff;
+               }
+
+               /* 📞 Phone ringing */
+               .phone-link:hover i {
+                 animation: ring 0.8s infinite;
+               }
+
+               @keyframes ring {
+                 0% { transform: rotate(0); }
+                 10% { transform: rotate(15deg); }
+                 20% { transform: rotate(-15deg); }
+                 30% { transform: rotate(10deg); }
+                 40% { transform: rotate(-10deg); }
+                 50% { transform: rotate(5deg); }
+                 60% { transform: rotate(-5deg); }
+                 70% { transform: rotate(0); }
+                 100% { transform: rotate(0); }
+               }
+
+               /* ✉️ Email send */
+               .email-link:hover i {
+                 animation: sendMail 0.6s forwards;
+               }
+
+               @keyframes sendMail {
+                 0% { transform: translateX(0) rotate(0); opacity: 1; }
+                 60% { transform: translateX(8px) rotate(-10deg); opacity: 0.8; }
+                 100% { transform: translateX(14px) rotate(-20deg); opacity: 0; }
+               }
+
+           </style>
 
            <!-- Öffnungszeiten -->
            <div class="col-md-3 col-sm-6 mb-4">
