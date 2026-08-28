@@ -1119,7 +1119,10 @@ document.querySelectorAll('.navbar-nav li a').forEach(link => {
      <!-- PRETTY-URL ROUTER (added): keeps all existing smooth-scroll behaviour
           exactly as-is, and additionally updates the address bar to a clean path
           (/ueberuns, /leistungen, /jobs, /termin, /kontakt) when those links are
-          clicked, and restores it on browser back/forward. -->
+          clicked — from the nav bar AND from the footer website map — and
+          restores it on browser back/forward. Uses a capturing listener on
+          document so it always runs first, even if another script on the page
+          stops the click event later. -->
      <script>
      (function () {
        var anchorToPath = {
@@ -1130,18 +1133,17 @@ document.querySelectorAll('.navbar-nav li a').forEach(link => {
          'appointment': '/termin',
          'google-map': '/kontakt'
        };
-       document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+       document.addEventListener('click', function (e) {
+         var link = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+         if (!link) return;
          var anchor = link.getAttribute('href').slice(1);
-         if (anchorToPath.hasOwnProperty(anchor)) {
-           link.addEventListener('click', function () {
-             // runs after the browser's own "#about" hash navigation, so our
-             // clean path overwrites it instead of the two combining
-             setTimeout(function () {
-               try { history.replaceState(null, '', anchorToPath[anchor]); } catch (e) {}
-             }, 0);
-           });
-         }
-       });
+         if (!anchorToPath.hasOwnProperty(anchor)) return;
+         // deferred so it runs after any other script's own click handling
+         // (smooth-scroll libraries, default hash navigation, etc.) has settled
+         setTimeout(function () {
+           try { history.replaceState(null, '', anchorToPath[anchor]); } catch (err) {}
+         }, 0);
+       }, true);
        window.addEventListener('popstate', function () {
          try {
            var pathToAnchor = { '/': 'top', '/ueberuns': 'about', '/leistungen': 'news', '/jobs': 'job-ad', '/termin': 'appointment', '/kontakt': 'google-map' };
