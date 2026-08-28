@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hana's Care</title>
+  <script>
+    // GitHub Pages serves this file for any URL it doesn't recognise as a real
+    // file, e.g. hanascare.de/ueberuns. We remember the path the visitor wanted,
+    // then send them to the real index.html — which reads it back out and
+    // scrolls to the matching section while keeping the pretty URL in the
+    // address bar. See the router script at the top of index.html.
+    try {
+      sessionStorage.setItem('hcRedirect', window.location.pathname);
+      window.location.replace('/');
+    } catch (e) { /* storage/navigation blocked, e.g. sandboxed preview */ }
+  </script>
+  <meta http-equiv="refresh" content="0; url=/">
+</head>
+<body>
+  <p>Weiterleitung zu Hana's Care &hellip; <a href="/">Bitte hier klicken, falls Sie nicht automatisch weitergeleitet werden.</a></p>
+</body>
+</html>

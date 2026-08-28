@@ -5,6 +5,38 @@
 
         <head>
 
+            <!-- PRETTY-URL ROUTER (added): if a visitor arrived via a clean path like
+                 /ueberuns, 404.html stored it and sent them here. We restore the address
+                 bar to that path and, once the page is ready, jump to the matching
+                 section. Nothing else on this page was changed. -->
+            <script>
+            (function () {
+              try {
+                var redirect = sessionStorage.getItem('hcRedirect');
+                if (!redirect) return;
+                sessionStorage.removeItem('hcRedirect');
+                var clean = redirect.replace(/\/$/, '');
+                var pathToAnchor = {
+                  '/ueberuns': 'about',
+                  '/leistungen': 'news',
+                  '/jobs': 'job-ad',
+                  '/termin': 'appointment',
+                  '/kontakt': 'google-map'
+                };
+                var anchor = pathToAnchor[clean];
+                if (anchor) {
+                  try { history.replaceState(null, '', clean); } catch (e) {}
+                  window.addEventListener('DOMContentLoaded', function () {
+                    var el = document.getElementById(anchor);
+                    if (el) el.scrollIntoView();
+                  });
+                } else if (clean !== '' && clean !== '/') {
+                  try { history.replaceState(null, '', '/'); } catch (e) {}
+                }
+              } catch (e) { /* sessionStorage unavailable, e.g. sandboxed preview */ }
+            })();
+            </script>
+
             <title>Hanas Care</title>
 
             <!-- FAVICON -->
@@ -96,7 +128,7 @@ document.querySelectorAll('.navbar-nav li a').forEach(link => {
 
                <!-- TikTok icon-only SVG -->
                <a href="https://www.tiktok.com/@hanascare_apflege?_r=1&_t=ZN-91bo7vnY3QU" target="_blank">
-                 <img 
+                 <img
                    src="https://static.cdnlogo.com/logos/t/46/tiktok-icon-black.svg"
                    alt="TikTok"
                    style="width:24px; height:24px;" />
@@ -1084,4 +1116,39 @@ document.querySelectorAll('.navbar-nav li a').forEach(link => {
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/custom.js"></script>
 
-
+     <!-- PRETTY-URL ROUTER (added): keeps all existing smooth-scroll behaviour
+          exactly as-is, and additionally updates the address bar to a clean path
+          (/ueberuns, /leistungen, /jobs, /termin, /kontakt) when those links are
+          clicked, and restores it on browser back/forward. -->
+     <script>
+     (function () {
+       var anchorToPath = {
+         'top': '/',
+         'about': '/ueberuns',
+         'news': '/leistungen',
+         'job-ad': '/jobs',
+         'appointment': '/termin',
+         'google-map': '/kontakt'
+       };
+       document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+         var anchor = link.getAttribute('href').slice(1);
+         if (anchorToPath.hasOwnProperty(anchor)) {
+           link.addEventListener('click', function () {
+             // runs after the browser's own "#about" hash navigation, so our
+             // clean path overwrites it instead of the two combining
+             setTimeout(function () {
+               try { history.replaceState(null, '', anchorToPath[anchor]); } catch (e) {}
+             }, 0);
+           });
+         }
+       });
+       window.addEventListener('popstate', function () {
+         try {
+           var pathToAnchor = { '/': 'top', '/ueberuns': 'about', '/leistungen': 'news', '/jobs': 'job-ad', '/termin': 'appointment', '/kontakt': 'google-map' };
+           var anchor = pathToAnchor[window.location.pathname] || 'top';
+           var el = document.getElementById(anchor);
+           if (el) el.scrollIntoView();
+         } catch (e) {}
+       });
+     })();
+     </script>
