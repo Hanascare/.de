@@ -1138,6 +1138,24 @@ document.querySelectorAll('.navbar-nav li a').forEach(link => {
          if (!link) return;
          var anchor = link.getAttribute('href').slice(1);
          if (!anchorToPath.hasOwnProperty(anchor)) return;
+
+         if (!link.classList.contains('smoothScroll')) {
+           // This link isn't wired up to the smoothscroll.js plugin (e.g. the
+           // footer sitemap links), so the browser would otherwise do its own
+           // native "#hash" jump on top of whatever pretty URL is currently
+           // shown, instead of the clean target path. Handle the whole
+           // navigation ourselves: stop the native jump, fix the URL, then
+           // scroll to the section manually so it behaves just like the
+           // navbar links do.
+           e.preventDefault();
+           try { history.replaceState(null, '', anchorToPath[anchor]); } catch (err) {}
+           var target = document.getElementById(anchor);
+           if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+           return;
+         }
+
+         // Existing navbar links: let the smoothscroll.js plugin handle the
+         // scroll animation as before; we just fix up the URL afterwards.
          // deferred so it runs after any other script's own click handling
          // (smooth-scroll libraries, default hash navigation, etc.) has settled
          setTimeout(function () {
