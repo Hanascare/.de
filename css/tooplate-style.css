@@ -1272,6 +1272,15 @@ http://www.tooplate.com/view/2098-health
   font-size: 14px;
 }
 
+/* SINGLE LOCATION: center the map */
+.map-grid-single {
+  justify-content: center;
+}
+
+.map-grid-single .map-item {
+  max-width: 800px;
+}
+
 /* 📱 MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .map-grid {
